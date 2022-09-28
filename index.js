@@ -3,41 +3,6 @@
 
 
 
-function multyElem(num) {
-    return num*2;
-}
-
-
-// const arrNative = [2, 3, 4, 5];
-// debugger
-//     const arr = [];
-//     for (let i = 0; i < arrNative.length; i++) {
-//         arr[i] = multyElem(arrNative[i]);
-//     }
-
-// console.log (arr);
-
-
-
-// function multyElem(num) {
-//     return num*2;
-// }
-
-
-// const arrNative = [2, 3, 4, 5];
-// debugger
-//     const arr = [];
-//     for (let i = 0; i < arrNative.length; i++) {
-//         arr[i] = multyElem(arrNative[i]);
-//     }
-
-// console.log (arr);
-
-
-
-// function multyElem(num) {
-//     return num*2;
-// }
 
 
 
@@ -112,33 +77,35 @@ function multyElem(num) {
 // }
 
 
-// function Ladder () {
-//     this.currentStep = 0;
-// }
-
-// function MethodLadder () {
-//     this.up = function () {
-//         this.currentStep++
 
 
-//     }
-//     this.down = function () {
-//         return this.Ladder[this.currentStep--];
+function Ladder () {
+    this.currentStep = 0;
+}
 
-//     }
-//     this.showStep = function () {
-//         return this.currentStep;
-//     }
-// }
+function MethodLadder () {
+    this.up = function () {
+        this.currentStep +=1;
+        return this;
+    }
+    this.down = function () {
+        this.currentStep -=1;
+        return this;
+    }
+    this.showStep = function () {
+        return this.currentStep;
+    }
+}
 
-// const protoMethodLadder = new MethodLadder();
+const protoMethodLadder = new MethodLadder();
 
-// Ladder.prototype = protoMethodLadder;
+Ladder.prototype = protoMethodLadder;
 
-// const ladder = new Ladder();
-// debugger
+const ladder = new Ladder();
 
-// ladder.up().down().up().up().showStep();
+debugger
+
+ladder.up().down().up().up().showStep();
 
 
 
