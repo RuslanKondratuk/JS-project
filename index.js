@@ -1,111 +1,84 @@
 'use strict'
 
+const NATIONALITIES = [
+    'Ukraine',
+    'USA',
+    'Germany',
+    'France',
+    'Greate Bretain',
+];
+
+function User (firstName, lastName, age, mail, isSubscribe = false, nationality ) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.mail = mail;
+    this.isSubscribe = isSubscribe;
+    this.nationality = nationality;
+}
+
+function getRandomArbitrary(min, max) {
+    return  Math.round( Math.random() * (max - min) + min);
+  }
+
+
+function createArrayOfUsers (quantity) {
+    const userArr = [];
+    for (let i = 0; i < quantity; i++) {
+        const user = new User (`Name${i}`, `LastName${i}`, getRandomArbitrary(1, 100), `mail${i}@com`, Boolean(Math.round(Math.random())), NATIONALITIES[getRandomArbitrary(0, 4)]);
+        userArr.push(user);
+    }
+    return userArr;
+}
+
+const arrUsers = createArrayOfUsers(50);
+
+
+
+function callbackFirstName (obj) {
+    return `${obj.firstName} ${obj.lastName}`;
+}
+
+arrUsers.sort(function(userA, userB) {
+    return userA.age - userB.age;
+});
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function MyArray () {
-//     this.length = 0;
-
-//     this.push = function(value) {
-//         this[this.length] = value;
-//         return  ++this.length;
+// const filterSub = arrUsers.filter(function (elem) {
+//     if (elem.isSubscribe) {
+//         return elem;
 //     }
+// });
 
-    // this.pop = function () {
-    //     const lastItem = this[this.length-1];
-    //     delete this[this.length-1];
-    //     this.length--;
-    //     return lastItem
-    // }
-
-    // this.forEach = function(callback) {
-    //     for (let i = 0; i < this.length; i++) {
-    //          = callback(this[i], i, this);
-    //     }
-    // }
-
-    // this.map = function(fn) {
-    //     const arr = [];
-    //     for (let i = 0; i < this.length; i++) {
-    //         arr.push(fn(this[i]));
-    //     }
-    //     return arr;
-    // }
-// }
-
-
-// const arrNative = [2, 3, 4, 5];
-
-// for (let i = 0; i < arrNative.length; i++) {
-//     const newArr = myltyEle(i);
-//     console.log(newArr);
-// }
-
-
-// function myltyEle(num) {
-//     return num*2;
-// }
+// const mailSub = arrUsers
+//                         .filter(function (elem) {
+//                             return elem.age >= 18 &&  elem.isSubscribe
+//                             })
+//                         .map(function(obj) {
+//                             return obj.mail;
+//                         })
 
 
 
+const arrayFullNameofUkraineAndSub = arrUsers
+                        .filter(function (elem) {
+                            return elem.isSubscribe && elem.nationality === 'Ukraine';
+                            })
+                        .map(function(obj) {
+                            return `${obj.firstName} ${obj.lastName}`;
+                        })
 
-function Ladder () {
-    this.currentStep = 0;
+
+function subscribeTure (obj) {
+    if (obj.age > 18) {
+     obj.isSubscribe = true;} else {
+        obj.isSubscribe = false;
+     }
 }
 
-function MethodLadder () {
-    this.up = function () {
-        this.currentStep +=1;
-        return this;
-    }
-    this.down = function () {
-        this.currentStep -=1;
-        return this;
-    }
-    this.showStep = function () {
-        return this.currentStep;
-    }
-}
+ arrUsers.forEach(subscribeTure);
 
-const protoMethodLadder = new MethodLadder();
-
-Ladder.prototype = protoMethodLadder;
-
-const ladder = new Ladder();
-
-debugger
-
-ladder.up().down().up().up().showStep();
-
-
+ console.table(arrUsers);
 
