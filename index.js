@@ -1,84 +1,219 @@
 'use strict'
 
-const NATIONALITIES = [
-    'Ukraine',
-    'USA',
-    'Germany',
-    'France',
-    'Greate Bretain',
-];
-
-function User (firstName, lastName, age, mail, isSubscribe = false, nationality ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-    this.mail = mail;
-    this.isSubscribe = isSubscribe;
-    this.nationality = nationality;
-}
-
-function getRandomArbitrary(min, max) {
-    return  Math.round( Math.random() * (max - min) + min);
-  }
-
-
-function createArrayOfUsers (quantity) {
-    const userArr = [];
-    for (let i = 0; i < quantity; i++) {
-        const user = new User (`Name${i}`, `LastName${i}`, getRandomArbitrary(1, 100), `mail${i}@com`, Boolean(Math.round(Math.random())), NATIONALITIES[getRandomArbitrary(0, 4)]);
-        userArr.push(user);
-    }
-    return userArr;
-}
-
-const arrUsers = createArrayOfUsers(50);
-
-
-
-function callbackFirstName (obj) {
-    return `${obj.firstName} ${obj.lastName}`;
-}
-
-arrUsers.sort(function(userA, userB) {
-    return userA.age - userB.age;
-});
-
-
-
-
-// const filterSub = arrUsers.filter(function (elem) {
-//     if (elem.isSubscribe) {
-//         return elem;
+// let sum = '';
+// for (let i = 0; i < 8; i++) {
+//     for (let j = 0; j < i; j++) {
+//         sum += '*';
 //     }
-// });
+//     sum += '\n';
+// }
+// console.log(sum);
 
-// const mailSub = arrUsers
-//                         .filter(function (elem) {
-//                             return elem.age >= 18 &&  elem.isSubscribe
-//                             })
-//                         .map(function(obj) {
-//                             return obj.mail;
-//                         })
+// let stars = '';
+// function square(a) {
+//     for (let  i = 0; i <= a; i++) {
+//         for (let j = 0; j <= a; j++) {
+//             if (i === 0 || i === a || j === 0 || j === a || i === j) {
+//                 stars += '*';
+//             } else {
+//                 stars += ' ';
+//             }
+//         }
+//         stars += '\n';
+//     }
+//     console.log(stars);
+// }
+
+// square(8);
 
 
 
-const arrayFullNameofUkraineAndSub = arrUsers
-                        .filter(function (elem) {
-                            return elem.isSubscribe && elem.nationality === 'Ukraine';
-                            })
-                        .map(function(obj) {
-                            return `${obj.firstName} ${obj.lastName}`;
-                        })
 
 
-function subscribeTure (obj) {
-    if (obj.age > 18) {
-     obj.isSubscribe = true;} else {
-        obj.isSubscribe = false;
-     }
-}
 
- arrUsers.forEach(subscribeTure);
 
- console.table(arrUsers);
 
+
+
+
+
+
+
+
+// for (let i = 0; i < 9; i++) {
+//     let stars = '';
+//     for (let j = 0; j < i; j++) {
+//         stars += '*';
+//     }
+//     console.log(stars);
+// }
+// let gor = '';
+// let vertical = '*';
+// let stars1 = '*';
+// let vertical = ''
+// function square (a, b) {
+//     for (let q = 0; q < a; q++) {
+//         gor += ' ' + '*';
+//     }
+//     console.log(gor);
+//     for (let i = 0; i < a; i++) {
+//         vertical += ' ';
+//         for (let j = 0; j < b; j++) {
+//             stars1 = vertical + '*' +' ';
+//         }
+//         console.log(stars1);
+//         stars1 = +'*';
+//         // vertical = stars + ' ' + '*';
+//         // console.log(vertical);
+
+
+//     }
+//     console.log(gor);
+// }
+// let gor = '';
+// let vertical = '*';
+// let stars1 = '';
+
+// // square (8,8);
+// function square (a) {
+//     for (let i = 0; i <= a; i++) {
+//         for (let j = 0; j <= a; j++) {
+//             if (i === 0 || i === a || j === 0 || j === a || i === a-j) {
+//             stars1 +='*';
+//             } else {
+//                 stars1 += ' ';
+//             }
+//         }
+//         stars1 += '\n'
+//     }
+//     console.log(stars1);
+// }
+
+// square (8);
+
+
+
+// function consolArrayDividerNumber(range1, range2) {
+//     for (let i = range1; i <= range2; i++) {
+//         for (let j = 0; j <= range2; j++) {
+//             if (i % j === 0) {
+//                 console.log(j);
+//             }
+//         }
+//     }
+// }
+
+// function consolArrayDividerNumber(range1, range2) {
+//     for (let i = range1; i <= range2; i++) {
+//         const array = [];
+//         for (let j = 1; j <= i; j++) {
+//             if (i % j === 0) {
+//                 array.push(j)
+//             }
+//         }
+//         console.log('Дільники числа ' + i + ' - ', array);
+//         // console.log(array);
+//     }
+// }
+
+// consolArrayDividerNumber(2, 10);
+
+// function returnFirsBig(string) {
+//     console.log(string.toUpperCase().charAt(0));
+// }
+
+
+// function returnFirsBig(string) {
+//     console.log(string[0].toUpperCase() + string.slice(1) );
+// }
+
+
+// function returnFirsBig(string) {
+//     if(string.includes('viagra') || string.includes('buy') || string.includes('XXX')){return true;}
+// }
+
+// function truncate(str, maxLength) {
+//     if (str.length > maxLength) {
+//         const end = '...'
+//         return str.slice (0,maxLength,).concat(end);
+//     }
+// }
+
+// const string = 'adacadabra'
+
+
+// function tryString(string) {
+//     if ()
+// }
+
+// const letternone = ['a', 'e', 'i', 'o', 'u']
+
+// function examinationLetter(string) {
+//     let sum = 0;
+//     for (let i = 0; i < string.length; i++) {
+//         for (let j = 0; j <= string.length; j++) {
+//             if(string[i] === letternone[j]) {
+//                 sum += 1;
+//             }
+//         }
+//     }
+//     console.log(sum);
+// }
+// const letternone = ['a', 'e', 'i', 'o', 'u']
+
+// function examinationLetter(string) {
+//     const arr = string.split('');
+
+//    arr.filter((letter){
+//     return obj[i] !== letternone[length]
+//    })
+//         // .length();
+// }
+
+
+// 1. const string = 'Я!вчу!джаваскрипт!';
+// string.replaceAll('!', ' ').trim();
+
+
+// 2. function aaaaa(string) {
+//     debugger
+//     return string[0].toUpperCase() + string.slice(1);
+// }
+
+// 3. function isSpam(str) {
+//     const spamWords = ['viagra', 'XXX', 'buy']
+//     for (let i = 0; i < spamWords.length; i++) {
+//         if(str.toLowerCase().includes(spamWords[i].toLocaleLowerCase())) {
+//             return true
+//         }
+//     }
+//     return false;
+// }
+
+
+// 4. const truncate = (str, maxLength) => str.length > maxLength ?  str.slice(0, maxLength).concat('...') : str;
+
+
+
+// 5. function chekString(str) {
+//     const strrev = str.split('').reverse();
+//     const revstring = strrev.join('');
+//     if (str.toLowerCase === revstring.toLowerCase) {
+//         return true;
+//     }
+//     return false;
+// }
+
+    // function chekGolosLetter(str) {
+
+    //     const golosLetter = ['a', 'e', 'i', 'o', 'u'];
+    //     const arrayString = str.split('');
+    //     const filtered = arrayString.filter(function (elem) {
+    //         for (let i = 0; i < golosLetter.length; i++) {
+    //             return golosLetter.includes(elem);
+    //         }})
+    //         return filtered.length;
+
+    // }
+
+    // const countVocalsV2 = (str) => str.split('').filter((letter) => ['a', 'e', 'i', 'o', 'u'].includes(letter)).length;
