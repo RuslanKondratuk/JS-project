@@ -1,9 +1,16 @@
 function MyArray () {
     this.length = 0;
 
-    this.push = function (value) {
-        this[this.length] = value;
-        return ++this.length;
+}
+
+function MyArrayMethods () {
+
+    this.push = function () {
+        for (let i = 0; i < arguments.length; i++) {
+            this[this.length] = arguments[i];
+            this.length++;
+        }
+        return this.length;
     }
 
     this.pop = function () {
@@ -14,9 +21,9 @@ function MyArray () {
     }
 
 
-    this.forEach = function (fn) {
+    this.forEach = function (callback) {
         for (let i = 0; i < this.length; i++) {
-         fn(this[i], i, this);
+         callback(this[i], i, this);
         }
     }
 
@@ -28,6 +35,12 @@ function MyArray () {
         return arr
     }
 }
+
+
+const proroArrayObject = new MyArrayMethods();
+
+MyArray.prototype = proroArrayObject;
+
 
 
 
